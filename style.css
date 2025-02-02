@@ -1,100 +1,16 @@
 *{
     font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-body{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-header, section{
-    margin: 10px;
-}
-
-h2{
-    color: rgb(104, 173, 236);
-}
-
-section{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-self: center;
-    height: 80px;
-    width: 800px;
-    max-width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: rgb(255, 215, 85);
-}
-
-div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 30px;
-}
-
-button, ul{
-    margin: 0px 10px;
-}
-
-label,input, button{
-    margin: 5px;
 }
 
 ul{
-    background-color: rgb(104, 173, 236);
-    height: 30px;
-    border-radius: 2px;
-
     display: flex;
-    margin-left: 120px;
-    align-items: center;
-    cursor: default;
+    flex-direction: row;
+    padding: 5px;
+    transition: 1s;
 }
 
 li{
+    margin: auto;
     list-style: none;
-    color:#ffffff;
-    font-weight: bold;
-    padding: 5px;
-    
-}
-
-label{
-    display: flex;
-    align-items: center;
-    font-weight: 750;
-    color: rgb(104, 173, 236);
-}
-
-input{
-    height: 25px;
-    max-width: 140px;
-    padding-left: 5px;
-    border-radius: 5px;
-    border: none;
-    background-color: rgb(160, 215, 231);
-}
-
-button{
-    background-color: rgb(35, 172, 214);
-    border: none;
-    height: 25px;
-    width: 50px;
-    font-weight: bold;
-    border-radius: 5px;
-    color: #ffffff;
-    transition: 0.8s;
-}
-
-button:hover{
-    transform: scale(1.1);
-    background-color: rgb(160, 215, 231);
+    transition: 1s;
 }

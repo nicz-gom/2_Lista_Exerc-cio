@@ -1,42 +1,67 @@
-let inputElement = document.querySelector("input");
-let buttonElement = document.querySelector("button");
+let addElement = document.getElementById("add");
+let removElement = document.getElementById("remov");
+let inputOfListElement = document.getElementById("inputOfList");
 let ulElement = document.querySelector("ul");
+let limit = 2;
 
-function processador(){
-    if(inputElement.value.trim() === ''){ //o trim serve para desconsiderar espaços em branco
-        alert("Você precisa digitar algum número!");
-        return;
-    }else{
-        const valor = Number(inputElement.value);
-        alert(`Número digitado: ${valor}`);
+let list = [];
 
-        ulElement.innerHTML = "";
+function render(){
+    ulElement.innerHTML = '';
 
+    list.map((todo) => {
         let liElement = document.createElement("li");
-
-        let textContent = "";
-
-        if(valor == 0){  
-            textContent = "O valor é igual a zero!";
-        }
-        if(valor > 0){
-            textContent = "O valor é positivo!";
-        }
-        if(valor < 0){
-            textContent = "O valor é negativo!";
-        }
-
-        liElement.textContent = textContent;
+        let pElement = document.createElement("p");
+        let pText = document.createTextNode(todo);
+        
+        pElement.appendChild(pText);
+        liElement.appendChild(pElement);
         ulElement.appendChild(liElement);
+    })
+}
 
-        inputElement.value = '';
+function add(){
+    if(inputOfListElement.value.trim() === ''){
+        alert('You need to type something!!');
+    }else{
+        alert("Object added successfully!!");
 
-        inputElement.focus();
+        list.push(inputOfListElement.value);
+
+        inputOfListElement.value = '';
+        inputOfListElement.focus();
+        if(list.length === limit){
+            addElement.remove();
+            alert("You have reached the list item limit!");
+        }
+
+        render();
+
     }
 }
 
-function reload(){
-   addEventListener("click", () => {
-        location.reload();
-   })
+function delet(){
+    let position = prompt('Type the position you want remove:');
+
+    if(position <= list.length && position > 0){
+        let truePosition = Number(position);
+        truePosition--;
+        list.splice(truePosition,1);
+        
+        if(list.length < limit){
+            addElement.innerHTML;
+        }
+
+        render();
+    }else{
+        alert("Your position is wrong!");
+    }
 }
+
+
+function verify(pList, pIten){
+
+}
+
+removElement.onclick = delet;
+addElement.onclick = add;
